@@ -13,12 +13,21 @@ const main = function () {
   api.getItems()
     .then(res => res.json())
     .then((items) => {
-      items.forEach((item) => store.addItem(item));
+      items.forEach((item) => {
+        store.addItem(item)
+      });
       shoppingList.render();
     });
 
+
+
   api.getItems()
-    .then(res => res.json());
+    .then(res => res.json())
+    .then(resJson => {
+
+    });
+
+
 
   shoppingList.bindEventListeners();
   shoppingList.render();
