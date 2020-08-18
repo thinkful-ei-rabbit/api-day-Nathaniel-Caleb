@@ -83,10 +83,19 @@ const handleEditShoppingItemSubmit = function () {
     event.preventDefault();
     const id = getItemIdFromElement(event.currentTarget);
     const itemName = $(event.currentTarget).find('.shopping-item').val();
-    render();
+    const newObj = {
+      'name': itemName,
+    };
+
+    api.updateItem(id, newObj)
+      .then(res => res.json())
+      .then((resJson) => {
+        console.log('THIS-shopping', resJson);
+        store.findAndUpdate(id, newObj);
+        render();
+      });
   });
 };
-
 const handleItemCheckClicked = function () {
   $('.js-shopping-list').on('click', '.js-item-toggle', event => {
     const id = getItemIdFromElement(event.currentTarget);

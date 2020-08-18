@@ -23,8 +23,7 @@ const main = function () {
 
   api.getItems()
     .then(res => res.json())
-    .then(resJson => {
-
+    .then(resJson => { console.log(resJson);
     });
 
 
