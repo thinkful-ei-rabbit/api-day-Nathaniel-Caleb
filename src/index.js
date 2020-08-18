@@ -11,7 +11,8 @@ import shoppingList from './shopping-list';
 
 const main = function () {
   api.getItems()
-  .then(res => console.log(res));
+    .then(res => res.json());
+
   shoppingList.bindEventListeners();
   shoppingList.render();
 };
